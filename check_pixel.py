@@ -1,7 +1,7 @@
 import PIL as pil
 import math
 
-_MAGNITUDE = 15
+_MAGNITUDE = 10
 
 def find_approximate(pixel, pallette_list):
     #don't change the alphas
