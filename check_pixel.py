@@ -1,18 +1,21 @@
 import PIL as pil
 import math
 
-_MAGNITUDE = 10
+_MAGNITUDE = 1
 
 def find_approximate(pixel, pallette_list):
     #don't change the alphas
     if(pixel[3] <= 0):
         return pixel
 
-    #current (ineffective) method: compute the sum and see which is less diff
-    pixel_sum = pixel[0]**_MAGNITUDE + pixel[1]**_MAGNITUDE + pixel[2]**_MAGNITUDE
+    #current method: compute the sum and see which is less diff
     pallette_pixel_sum = {}
     for color in pallette_list:
-        i_sum = math.fabs(color[0]**_MAGNITUDE + color[1]**_MAGNITUDE + color[2]**_MAGNITUDE - pixel_sum)
+        r_sum = math.fabs(color[0] ** _MAGNITUDE - pixel[0] ** _MAGNITUDE)
+        g_sum = math.fabs(color[1] ** _MAGNITUDE - pixel[1] ** _MAGNITUDE)
+        b_sum = math.fabs(color[2] ** _MAGNITUDE - pixel[2] ** _MAGNITUDE)
+
+        i_sum = r_sum + g_sum + b_sum
         pallette_pixel_sum[i_sum] = color
 
     npixel = pallette_pixel_sum[min(pallette_pixel_sum.keys())]
