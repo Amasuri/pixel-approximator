@@ -4,13 +4,12 @@
 
 import sys, os, time
 if sys.version_info[0] > 2:
-  print("Python 2 only! Use PIL")
+  print("Python 2 only!")
   sys.exit(1)
 
 #--------------------------------------------------
 
 import check_pixel as chkpix
-import numpy
 import PIL as pil
 from PIL import Image
 
