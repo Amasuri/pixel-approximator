@@ -1,6 +1,7 @@
 import PIL as pil
 import math
 
+#do play with the value! some files are good at 1, some at 5..
 _MAGNITUDE = 1
 
 def find_approximate(pixel, pallette_list):
