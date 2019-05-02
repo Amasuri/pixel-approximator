@@ -20,6 +20,11 @@ print("Works on every .png file in directory.")
 print("Press enter...")
 raw_input()
 
+print("\nInput magnitude of difference number (you'd want either 1 or 5, but feel free to experiment! Some things are looking better after magnitude of 1, but others are after magnitude 5!\n")
+inputMag = raw_input()
+if(inputMag.isdigit()):
+    chkpix._MAGNITUDE = int(inputMag)
+
 print("\nsearching pallette file...")
 pallette_file = Image.open("pallette.png").convert('RGBA')
 width, height = pallette_file.size
@@ -31,11 +36,6 @@ for x in range(width):
         pixel = pallette_file.getpixel((x, y))
         if pixel not in pallette_colors:
             pallette_colors.append(pixel)
-            #print(pixel)
-
-#print("\nClose if you aren't okay with the pallette")
-#print("Enter to continue")
-#raw_input()
 
 
 print("\nloading source files..")
