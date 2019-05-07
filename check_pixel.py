@@ -17,7 +17,7 @@ def find_approximate(pixel, pallette_list):
         b_sum = math.fabs(color[2] ** _MAGNITUDE - pixel[2] ** _MAGNITUDE)
 
         i_sum = r_sum + g_sum + b_sum
-        pallette_pixel_sum[i_sum] = color
+        pallette_pixel_sum[i_sum] = (color[0], color[1], color[2], pixel[3])
 
     npixel = pallette_pixel_sum[min(pallette_pixel_sum.keys())]
     return npixel
