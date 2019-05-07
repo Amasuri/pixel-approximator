@@ -37,6 +37,9 @@ for x in range(width):
         if pixel not in pallette_colors:
             pallette_colors.append(pixel)
 
+print("\ncompiling palette values...")
+chkpix.compile_palette(pallette_colors)
+
 
 print("\nloading source files..")
 default_dir = os.getcwd()
@@ -59,7 +62,7 @@ for file in source_files.keys():
     #run the script to change pixels to those of the pallette
     for x in range(width):
         for y in range(height):
-            pMap[x, y] = chkpix.find_approximate(pMap[x, y], pallette_colors)
+            pMap[x, y] = chkpix.find_approximate(pMap[x, y])
 
     source_files[file].save(file)
     pass
