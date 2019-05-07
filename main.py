@@ -1,4 +1,5 @@
 #python 2.7.13
+from __future__ import print_function
 
 #-------------------------------------------------
 
@@ -52,8 +53,11 @@ for filename in os.listdir("."):
 
 print("\napproximating...\n")
 os.chdir(default_dir + "\Result")
+total_time = 0.0
 for file in source_files.keys():
-    print("file: " + file)
+    start_time = time.time()
+
+    print("file: " + file, end = " ")
     width, height = source_files[file].size
 
     #create pixmap
@@ -65,9 +69,12 @@ for file in source_files.keys():
             pMap[x, y] = chkpix.find_approximate(pMap[x, y])
 
     source_files[file].save(file)
+    end_time = time.time()
+    total_time += end_time - start_time
+    print(str(round(end_time - start_time, 2)) + " seconds")
     pass
 
 
-
+print("\ntotal time: " + str(round(total_time, 2)) + " seconds")
 print("\ndone, press enter to exit")
 raw_input()
